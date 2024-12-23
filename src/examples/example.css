@@ -1,0 +1,8 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    font-size: 20px;
+  }
+}
