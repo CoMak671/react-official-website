@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router';
+import { RoutingTable } from './router';
 import './App.css';
 
 function App() {
@@ -8,12 +9,11 @@ function App() {
         <NavLink to="/" end>
           Home
         </NavLink>
-        <NavLink
-          to="/different-components-at-the-same-position-reset-state"
-          end
-        >
-          different-components-at-the-same-position-reset-state
-        </NavLink>
+        {RoutingTable.map((route, index) => (
+          <NavLink key={index} to={`/${route.title}`} end>
+            {route.title}
+          </NavLink>
+        ))}
       </nav>
     </div>
   );

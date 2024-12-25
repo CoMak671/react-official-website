@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router';
+import { RoutingTable } from './router';
 import './index.css';
 import App from './App';
-
-import DifferentComponentsAtTheSamePositionResetState from './examples/different-components-at-the-same-position-reset-state';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,10 +11,13 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route
-          path="/different-components-at-the-same-position-reset-state"
-          element={<DifferentComponentsAtTheSamePositionResetState />}
-        />
+        {RoutingTable.map((route, index) => (
+          <Route
+            key={index}
+            path={'/' + route.title}
+            element={route.component}
+          />
+        ))}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
